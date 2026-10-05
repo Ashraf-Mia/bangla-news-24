@@ -23,7 +23,6 @@ export default async function Home() {
   const mainNews = sections[0].articles;
 
   const otherSections: IOtherSection[] = sections.slice(1);
-  console.log(otherSections);
 
   return (
     <div>
