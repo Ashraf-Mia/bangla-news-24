@@ -9,7 +9,11 @@ interface INews {
   category: string;
 }
 
-const CategoryNews = async ({ params }: { params: { categoryId: string } }) => {
+const CategoryNews = async ({
+  params,
+}: {
+  params: Promise<{ categoryId: string }>;
+}) => {
   const { categoryId } = await params;
 
   const res = await fetch(
@@ -19,11 +23,11 @@ const CategoryNews = async ({ params }: { params: { categoryId: string } }) => {
   const categoryNews: INews[] = data.data;
 
   return (
-    <div>
-      <h2 className=" text-2xl font-bold border-b-2 border-red-700 pt-3">
+    <div className="pt-4 sm:pt-5">
+      <h1 className="border-b-2 border-red-700 pb-2 text-xl font-bold sm:text-2xl">
         {data.title}
-      </h2>
-      <div className=" grid grid-cols-3 pt-4">
+      </h1>
+      <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-3">
         {categoryNews.map((news) => (
           <NewsCard key={news.id} news={news} />
         ))}

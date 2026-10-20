@@ -18,13 +18,13 @@ const NotFound = () => {
   const router = useRouter();
 
   return (
-    <main
-      className={`${body.className} flex min-h-screen items-center justify-center bg-white px-4 text-slate-800`}
+    <div
+      className={`${body.className} flex min-h-[70vh] items-center justify-center bg-white px-4 py-10 text-slate-800`}
     >
       <section className="w-full max-w-xl text-center">
         <p
           aria-hidden="true"
-          className={`${heading.className} select-none text-[8rem] font-bold leading-none text-teal-700 sm:text-[11rem]`}
+          className={`${heading.className} select-none text-7xl font-bold leading-none text-teal-700 sm:text-8xl md:text-[9rem]`}
         >
           404
         </p>
@@ -59,7 +59,7 @@ const NotFound = () => {
           </Link>
         </div>
       </section>
-    </main>
+    </div>
   );
 };
 

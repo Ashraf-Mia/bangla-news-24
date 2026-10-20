@@ -25,18 +25,18 @@ export default async function Home() {
   const otherSections: IOtherSection[] = sections.slice(1);
 
   return (
-    <div>
-      <div className="grid grid-cols-3 gap-5  pt-5">
+    <div className="pt-4 sm:pt-5">
+      <div className="grid grid-cols-1 gap-6 lg:grid-cols-3 lg:gap-8">
         {/* news section */}
-        <div className=" col-span-2 ">
+        <div className="min-w-0 lg:col-span-2">
           <MainNews news={mainNews} />
           <div>
             {otherSections.map((os) => (
-              <div className=" " key={os.curationId}>
-                <h1 className="font-bold border-b-2 border-red-700 text-2xl mt-6">
+              <div key={os.curationId}>
+                <h2 className="mt-6 border-b-2 border-red-700 text-xl font-bold sm:text-2xl">
                   {os.title}
-                </h1>
-                <div className=" grid grid-cols-3 gap-3 pt-4">
+                </h2>
+                <div className="grid grid-cols-1 gap-4 pt-4 sm:grid-cols-2 sm:gap-5 xl:grid-cols-3">
                   {os.articles.map((news) => (
                     <NewsCard key={news.id} news={news} />
                   ))}
@@ -47,9 +47,9 @@ export default async function Home() {
         </div>
 
         {/* most read section */}
-        <div className=" col-span-1 ">
+        <aside className="min-w-0 lg:col-span-1">
           <MostRead />
-        </div>
+        </aside>
       </div>
     </div>
   );

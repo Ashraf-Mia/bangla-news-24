@@ -22,21 +22,23 @@ const Marquee = async () => {
   const data = await res.json();
   const headLines: IMarquee[] = data.data;
   return (
-    <div className=" bg-red-700 text-white">
-      <div className=" flex max-w-7xl mx-auto">
-        <div className=" bg-red-800 py-1 px-3 font-bold">সর্বশেষ</div>
-        <MarqueeText className=" py-1" direction="right" duration={15}>
-          {headLines.map((h) => (
-            <Link
-              href={`/news/${h.id}`}
-              key={h.id}
-              className=" hover:underline"
-            >
-              <span>{h.title}</span>
-              <span className=" px-4">•</span>
-            </Link>
-          ))}
-        </MarqueeText>
+    <div className="w-full bg-red-700 text-white">
+      <div className="mx-auto flex w-full max-w-7xl items-center overflow-hidden px-4 sm:px-6 lg:px-8">
+        <div className="shrink-0 bg-red-800 px-3 py-1 font-bold">সর্বশেষ</div>
+        <div className="min-w-0 flex-1 overflow-hidden">
+          <MarqueeText className=" py-1" direction="right" duration={15}>
+            {headLines.map((h) => (
+              <Link
+                href={`/news/${h.id}`}
+                key={h.id}
+                className=" hover:underline"
+              >
+                <span>{h.title}</span>
+                <span className=" px-4">•</span>
+              </Link>
+            ))}
+          </MarqueeText>
+        </div>
       </div>
     </div>
   );

@@ -45,20 +45,27 @@ const SignUpPage = () => {
   };
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold text-red-700 py-4 text-center">
+    <div className="mx-auto w-full max-w-md py-6 sm:py-8">
+      <h1 className="py-4 text-center text-2xl font-bold text-red-700">
         সাইন আপ
-      </h2>
+      </h1>
       <form onSubmit={onSubmit}>
-        <fieldset className="fieldset bg-base-200 border-base-300 rounded-box w-xs border p-4">
+        <fieldset className="fieldset w-full rounded-box border border-base-300 bg-base-200 p-5 sm:p-6">
           <label className="label">নাম</label>
-          <input name="name" type="text" className="input" placeholder="name" />
+          <input
+            name="name"
+            type="text"
+            autoComplete="name"
+            className="input w-full"
+            placeholder="name"
+          />
 
           <label className="label">ইমেইল</label>
           <input
             name="email"
             type="email"
-            className="input"
+            autoComplete="email"
+            className="input w-full"
             placeholder="Email"
           />
 
@@ -66,28 +73,36 @@ const SignUpPage = () => {
           <input
             name="password"
             type="password"
-            className="input"
+            autoComplete="new-password"
+            className="input w-full"
             placeholder="Password"
           />
 
           <button
             type="submit"
-            className="btn bg-red-700 hover:bg-red-800 text-white mt-4"
+            className="btn mt-4 w-full bg-red-700 text-white hover:bg-red-800"
           >
             সাইন আপ করুন
           </button>
         </fieldset>
       </form>
       <div>
-        <span className=" flex justify-center mt-3 font-bold">
+        <span className="mt-4 flex justify-center text-sm font-bold sm:text-base">
           Or, sign up with
         </span>
-        <div className=" text-center">
-          <button onClick={handleGoogleSignIn} className="btn btn-link">
-            {" "}
+        <div className="mt-2 flex flex-wrap justify-center gap-2">
+          <button
+            type="button"
+            onClick={handleGoogleSignIn}
+            className="btn btn-link"
+          >
             <FcGoogle /> Google
           </button>
-          <button onClick={handleGithubSignIn} className="btn btn-link">
+          <button
+            type="button"
+            onClick={handleGithubSignIn}
+            className="btn btn-link"
+          >
             <FaGithubSquare /> Github
           </button>
         </div>

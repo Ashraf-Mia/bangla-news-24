@@ -11,23 +11,24 @@ const MostRead = async () => {
   const news: IMostRead[] = data.data;
 
   return (
-    <div className=" card p-4 bg-base-100 border border-gray-300">
-      <h1 className=" font-bold text-red-600 mb-3">সর্বাধিক পঠিত</h1>
-      {news.map((ms, i: number) => (
-        <Link
-          href={`/news/${ms.id}`}
-          className=" flex gap-2 space-y-2"
-          key={ms.id}
-        >
-          <p
-            className=" font-bold  text-red-700
-          "
+    <div className="card h-full border border-gray-300 bg-base-100 p-4 sm:p-5">
+      <h2 className="mb-3 text-lg font-bold text-red-600 sm:text-xl">
+        সর্বাধিক পঠিত
+      </h2>
+      <div className="flex flex-col gap-3">
+        {news.map((ms, i: number) => (
+          <Link
+            href={`/news/${ms.id}`}
+            className="flex min-w-0 gap-2"
+            key={ms.id}
           >
-            {i + 1}
-          </p>
-          <h2>{ms.title}</h2>
-        </Link>
-      ))}
+            <p className="shrink-0 font-bold text-red-700">{i + 1}</p>
+            <h3 className="min-w-0 text-sm leading-snug hover:text-red-700 sm:text-base">
+              {ms.title}
+            </h3>
+          </Link>
+        ))}
+      </div>
     </div>
   );
 };

@@ -72,8 +72,8 @@ const NewsDetailsPage = async ({
   const readMinutes = Math.max(1, Math.round((news.wordCount ?? 0) / 180));
 
   return (
-    <main className={`${body.className} min-h-screen bg-white text-slate-800`}>
-      <article className="mx-auto max-w-3xl px-4 pb-24 pt-8 sm:px-6">
+    <div className={`${body.className} min-h-[70vh] bg-white text-slate-800`}>
+      <article className="mx-auto max-w-3xl pb-20 pt-6 sm:pb-24 sm:pt-8">
         <Link
           href="/"
           className={`${heading.className} inline-flex items-center gap-1 text-sm font-medium text-teal-700 hover:underline focus-visible:outline focus-visible:outline-2 focus-visible:outline-teal-600`}
@@ -96,7 +96,7 @@ const NewsDetailsPage = async ({
           )}
 
           <h1
-            className={`${heading.className} mt-4 text-3xl font-bold leading-snug text-slate-900 sm:text-4xl sm:leading-snug`}
+            className={`${heading.className} mt-4 break-words text-2xl font-bold leading-snug text-slate-900 sm:text-3xl lg:text-4xl`}
           >
             {news.title}
           </h1>
@@ -132,13 +132,13 @@ const NewsDetailsPage = async ({
           </figure>
         )}
 
-        <div className="mt-8 space-y-6 text-lg leading-loose sm:text-xl sm:leading-[2.1]">
+        <div className="mt-8 space-y-6 break-words text-base leading-loose sm:text-lg sm:leading-[2.1] lg:text-xl">
           {blocks.map((block, i) => {
             if (block.type === "subheading") {
               return (
                 <h2
                   key={i}
-                  className={`${heading.className} border-l-4 border-teal-600 pl-4 pt-4 text-2xl font-semibold leading-snug text-slate-900`}
+                  className={`${heading.className} border-l-4 border-teal-600 pl-4 pt-4 text-xl font-semibold leading-snug text-slate-900 sm:text-2xl`}
                 >
                   {block.text}
                 </h2>
@@ -195,7 +195,7 @@ const NewsDetailsPage = async ({
         <footer
           className={`${heading.className} mt-12 flex flex-wrap items-center justify-between gap-3 border-t border-slate-200 pt-6 text-sm text-slate-600`}
         >
-          <span>সূত্র: {news.source}</span>
+          <span className="break-words">সূত্র: {news.source}</span>
           {news.sourceUrl && (
             <a
               href={news.sourceUrl}
@@ -209,7 +209,7 @@ const NewsDetailsPage = async ({
         </footer>
       </article>
       <ScrollButton />
-    </main>
+    </div>
   );
 };
 
